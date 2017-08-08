@@ -1,0 +1,27 @@
+{
+    "name": "paschaldev/laravauth",
+    "description": "Laravel authentication with a twist.",
+    "type": "library",
+    "keywords": ["laravauth", "laravel", "2fa", "auth", "nexmo", "twilio", "authentication"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ezeugwu Paschal",
+            "email": "ezeugwupaschal@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "nexmo/laravel": "^0.4.0",
+        "aloha/twilio": "^3.0",
+        "nesbot/carbon": "~1.20"
+    },
+    "require-dev": {
+        "laravel/laravel": "dev-develop"
+    },
+    "autoload": {
+        "psr-4": {
+            "PaschalDev\\Laravauth\\": "src/"
+        }
+    }
+}
