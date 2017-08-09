@@ -10,9 +10,11 @@ class Twilio implements TwoFactorSmsGateway{
 	/**
      * Uses Nexmo API to send texts to user's phone.
      *
+     * @param string $to 
+     * @param string $message
      * @return mixed
      */
-	public function send($to, $from, $message){
+	public function send($to, $message){
 
 		return TwilioMessenger::message( $to, $message );
 	}

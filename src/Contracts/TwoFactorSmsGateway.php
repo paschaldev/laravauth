@@ -9,5 +9,5 @@ interface TwoFactorSmsGateway{
     *
     * @return mixed
     */
-	public function send($to, $from, $message);
+	public function send($to, $message);
 }

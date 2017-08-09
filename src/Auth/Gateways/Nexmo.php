@@ -10,14 +10,16 @@ class Nexmo implements TwoFactorSmsGateway{
 	/**
      * Uses Nexmo API to send texts to user's phone.
      *
+     * @param string $to 
+     * @param string $message
      * @return mixed
      */
-	public function send($to, $from, $message){
+	public function send($to, $message){
 
 		return NexmoMessenger::message()->send([
 
 				'to' => $to,
-				'from' => $from,
+				'from' => env('NEXMO_FROM', config('app.name')),
 				'text' => $message
 			]);
 	}

@@ -31,6 +31,7 @@ class EmailTokenSent extends Mailable
      */
     public function build()
     {
-        return $this->markdown('laravauth::mail.email_token');
+        return $this->markdown('laravauth::mail.email_token')
+            ->subject( str_replace('%appname%', config('app.name'), config('laravauth.email_token.mail_subject')) );
     }
 }

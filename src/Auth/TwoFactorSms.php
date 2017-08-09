@@ -104,10 +104,9 @@ class TwoFactorSms implements TokenAuthenticator{
 	public function tokenMessenger()
 	{
 		$to = $this->user->laravauthPhone();
-		$from = 'Laravel';
 		$message = str_replace( '%validity%', intval( config('laravauth.two_factor_sms.lifetime') / 60 ) , config('laravauth.two_factor_sms.text_prefix') ).$this->user->{config('laravauth.token_column_name')};
 
-		$messenger = new SmsRouter( $to, $from, $message );
+		$messenger = new SmsRouter( $to, $message );
 		return $messenger->send();
 	}
 

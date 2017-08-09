@@ -18,13 +18,6 @@ class SmsRouter
 	private $to;
 
 	/**
-     * The source where the SMS came from.
-     *
-     * @var string
-     */
-	private $from;
-
-	/**
      * The text message to be sent.
      *
      * @var string
@@ -32,10 +25,9 @@ class SmsRouter
 	private $message;
 	
 
-	public function __construct($to, $from, $message)
+	public function __construct($to, $message)
 	{
 		$this->setTo($to);
-		$this->setFrom($from);
 		$this->setMessage($message);
 	}
 
@@ -58,27 +50,6 @@ class SmsRouter
 	public function getTo(){
 
 		return $this->to;
-	}
-
-	/**
-     * Sets the $from property.
-     *
-     * @param string
-     * @return void
-     */
-	public function setFrom($from){
-
-		$this->from = $from;
-	}
-
-	/**
-     * Returns the from property
-     *
-     * @return string
-     */
-	public function getFrom(){
-
-		return $this->from;
 	}
 
 	/**
@@ -109,7 +80,7 @@ class SmsRouter
      */
 	public function send(){
 
-		return $this->gateway()->send( $this->getTo(), $this->getFrom(), $this->getMessage() );
+		return $this->gateway()->send( $this->getTo(), $this->getMessage() );
 	}
 
 	/**

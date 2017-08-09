@@ -114,7 +114,7 @@ return [
     | @required string
     */
 
-	'auth_method' => 'two_factor_sms',
+	'auth_method' => 'email_token',
 
     /*
     |--------------------------------------------------------------------------
@@ -187,7 +187,10 @@ return [
         'length' => 50, 
 
         //See full list of options here http://php.net/manual/en/function.hash-algos.php
-        'algorithm' => 'sha256' 
+        'algorithm' => 'sha256',
+
+        //Subject of the mail
+        'mail_subject' => 'Login to %appname%'
     ],
 
     /*
@@ -211,9 +214,9 @@ return [
         //Text to append before the token code
         'text_prefix' => 'Your one time password (OTP) valid for %validity%min is: ',
 
-        //Support for 3 gateways / sms providers.
-        //Possible values: nexmo, twillio
-        'gateway' => 'twilio'
+        //Support for 2 gateways / sms providers.
+        //Possible values: nexmo, twilio
+        'gateway' => 'nexmo'
     ],
 
     /*
