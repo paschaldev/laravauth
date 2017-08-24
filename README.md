@@ -1,6 +1,8 @@
 # Laravauth
 
-Laravel authentication with a twist.
+> Laravel authentication with a twist.
+
+**Laravauth** is an authentication package for laravel that uses a different technique other than the traditional authentication methods.
 
 ## Synopsis
 
@@ -17,7 +19,7 @@ This type of authorization does not require passwords. The user simply provides 
 
 ##### Two Factor Authorization (SMS)
 
-Two Factor Authorization is an extra layer of security that ensures the user has another "thing they have" to couple with the "thing they know". They "thing they know" is usually their passoword, the "thing they have" for this case is a personal mobile number a token is sent to. [Read more](https://www.google.com.ng/url?sa=t&rct=j&q=&esrc=s&source=web&cd=4&cad=rja&uact=8&ved=0ahUKEwiZpdqFy8nVAhXCL1AKHR9HAboQFghMMAM&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FMulti-factor_authentication&usg=AFQjCNG5ZrSt445-9PIhTFVh7goI4j6Jbw "Wikipedia - Multi-factor authorization")
+Two Factor Authorization is an extra layer of security that ensures the user has another "thing they have" to couple with the "thing they know". The "thing they know" is usually their password, the "thing they have" for this case is a personal mobile number a token is sent to. [Read more](https://www.google.com.ng/url?sa=t&rct=j&q=&esrc=s&source=web&cd=4&cad=rja&uact=8&ved=0ahUKEwiZpdqFy8nVAhXCL1AKHR9HAboQFghMMAM&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FMulti-factor_authentication&usg=AFQjCNG5ZrSt445-9PIhTFVh7goI4j6Jbw "Wikipedia - Multi-factor authorization")
 
 This mode of authorization requires password and a phone number for the user. After the user provides his login credentials, default is `email` and `password`, **Laravauth** serves a page requesting a token, a short lived token valid for a specific amount of time (default is 10minutes) is sent to the user's phone. The user provides the token, if it's valid, the user is authenticated.
 
@@ -46,7 +48,7 @@ $ php artisan vendor:publish --provider="PaschalDev\Laravauth\Providers\Laravaut
 
 > Make sure your database has been setup and working fine before proceeding.
 
-The default configuration assumes the user's table name is `users`, if this is not so in your application, please skip this step, update your laravauth configuration to reflect this change before running the command below.
+The default configuration assumes the user's model is `App\Users`, if this is not so in your application, please skip this step, update your laravauth configuration to reflect this change before running the command below.
 
 Now run:
 
@@ -159,7 +161,7 @@ Once a user logs in and the credentials are valid, a page asking for the token i
 
 **Laravauth** uses a different route for validating authentication, which can be customized in your config file, look for `validator_route` and adjust to suit your needs. The default is `'validate'`. The form's action attribute should point to the validator route, the method should also be `POST`.
 
-The other thing required is a `token` input. This should not be confused with Laravel's own `_token` for protecting against CSRF (Cross-Site Request Forgery). You can change the name of the `token` variable used by **Laravauth** by updating the `token_var` option in the config file, the default is `'token'`. **Laravauth has an helper method to output this variable name `laravauth_token_var_name()` so you don't need bother much, just output the function in the `name` attribute of the input that will be sent to the `validator` route.
+The other thing required is a `token` input. This should not be confused with Laravel's own `_token` for protecting against CSRF (Cross-Site Request Forgery). You can change the name of the `token` variable used by **Laravauth** by updating the `token_var` option in the config file, the default is `'token'`. **Laravauth** has an helper method to output this variable name `laravauth_token_var_name()` so you don't need bother much, just output the function in the `name` attribute of the input that will be sent to the `validator` route.
 
 Once the form is submitted, the `validator` confirms if it's a valid token, if not the page is re-served. If it's valid, the user is authenticated and redirected to the auth page you define.
 
