@@ -140,7 +140,7 @@ return [
     | @optional bool
     */
 
-	'soft_disable' => true,
+	'soft_disable' => false,
 
     /*
     |--------------------------------------------------------------------------
