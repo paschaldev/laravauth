@@ -4,6 +4,8 @@
 
 **Laravauth** is an authentication package for laravel that uses a different technique other than the traditional authentication methods.
 
+**REQUIREMENTS: Laravel >= 5.4**
+
 ## Synopsis
 
 This package works by hooking. How? Simply hooks to the `login` route, intercepts it and continues work from there.
