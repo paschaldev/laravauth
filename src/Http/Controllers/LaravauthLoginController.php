@@ -42,9 +42,9 @@ class LaravauthLoginController extends Controller
      */
     public function emailResponse(Request $request){
 
-        abort_unless( $request->session()->has('Laravauth_var'), 404);
+        abort_unless( $request->session()->has('laravauth_var'), 404);
 
-        return view('Laravauth::email_response');
+        return view('laravauth::email_response');
     }
 
     /**
@@ -58,10 +58,10 @@ class LaravauthLoginController extends Controller
      */
     public function smsResponse(Request $request){
 
-        abort_unless( $request->session()->has('Laravauth_var'), 404);
+        abort_unless( $request->session()->has('laravauth_var'), 404);
 
         $request->session()->reflash();
 
-        return view('Laravauth::sms_response');
+        return view('laravauth::sms_response');
     }
 }
