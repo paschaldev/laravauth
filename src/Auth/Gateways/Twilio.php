@@ -3,7 +3,6 @@
 namespace PaschalDev\Laravauth\Auth\Gateways;
 
 use PaschalDev\Laravauth\Contracts\TwoFactorSmsGateway;
-use Twilio\Rest\Client;
 
 class Twilio implements TwoFactorSmsGateway
 {
@@ -17,8 +16,7 @@ class Twilio implements TwoFactorSmsGateway
      */
     public function send($to, $message)
     {
-        $sms = new Client(env('TWILIO_SID'), env('TWILIO_TOKEN'));
-        return $sms->messages->create($to,
+        return app('twilio')->messages->create($to,
             ['from' => env('TWILIO_NUMBER'), 'body' => $message]);
     }
 }

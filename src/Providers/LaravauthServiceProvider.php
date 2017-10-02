@@ -138,7 +138,7 @@ class LaravauthServiceProvider extends ServiceProvider
     {
 
         $this->app->register(
-            ' App\Providers\TwilioProvider::class'
+            'PaschalDev\Laravauth\Providers\TwilioProvider'
         );
     }
 }
