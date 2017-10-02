@@ -13,7 +13,7 @@
     "minimum-stability": "dev",
     "require": {
         "nexmo/laravel": "^0.4.0",
-        "aloha/twilio": "^3.0",
+        "twilio/sdk": "^5.4",
         "nesbot/carbon": "~1.20"
     },
     "require-dev": {
