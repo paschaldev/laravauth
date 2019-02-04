@@ -39,6 +39,7 @@ class LaravauthServiceProvider extends ServiceProvider
 
         $this->registerNexmo();
         $this->registerTwilio();
+        $this->registerMessageBird();
     }
 
     /**
@@ -139,6 +140,18 @@ class LaravauthServiceProvider extends ServiceProvider
 
         $this->app->register(
             'PaschalDev\Laravauth\Providers\TwilioProvider'
+        );
+    }
+
+    /**
+     * Register MessageBird (SMS Gateway)
+     *
+     * @return void
+     */
+    public function registerMessageBird()
+    {
+        $this->app->register(
+            'PaschalDev\Laravauth\Providers\MessageBirdProvider'
         );
     }
 }

@@ -3,8 +3,6 @@
 namespace PaschalDev\Laravauth\Auth;
 
 use Laravauth;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
 use PaschalDev\Laravauth\Traits\User;
 use PaschalDev\Laravauth\Traits\AuthTokens;
 use PaschalDev\Laravauth\Traits\UsesPassword;
@@ -61,6 +59,9 @@ class TwoFactorSms implements TokenAuthenticator{
 		'laravauth_var' => route('laravauth_email_response'),
 		'user_id' => $this->user->id
 		];
+
+        // Add the user id to the session.
+        $this->request->session()->flash('user_id', $this->user->id);
 
 		// If the request was expecting a JSON, probably 
 		// XMLHttpRequest (Ajax).

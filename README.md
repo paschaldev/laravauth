@@ -94,6 +94,7 @@ This mode of authorization requires an SMS provider. Two providers are shipped w
 
 1. [Nexmo](http://nexmo.com)
 2. [Twilio](http://twilio.com)
+3. [MessageBird](http://messagebird.com)
 
 You can choose your preferred provider by changing the value in the `laravauth` config file. Look for the option `two_factor_sms`, its an array that contains specific configuration for the two factor sms mode. Inside the array is a `gateway` option you can toggle. Possible values are `nexmo` and `twilio`. 
 
@@ -125,6 +126,16 @@ TWILIO_FROM=xxxxx
 
 You can get all the values from your twilio dashboard. The `TWILIO_FROM` is a phone number you get when you are done creating account. This is where your SMS will originate from.
 
+##### MessageBird
+
+MessageBird requires the following to be added and set in your `.env` file:
+
+```
+MESSAGEBIRD_KEY=xxxxxx
+MESSAGEBIRD_FROM=xxxxxx
+```
+
+You can get your MessageBird key from your dashboard after creating account.
 ___
 
 After setting the SMS providers, you are one step there. Now you need to tell **Laravauth** how to retrieve a user's phone number by adding the following method to your user model: `laravauthPhone()`.

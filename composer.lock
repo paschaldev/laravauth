@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "76426a4f7363a6b9eaebc0df55b72fb5",
+    "content-hash": "0871fa22bb44629d1ab0f95ea354beed",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -759,6 +759,47 @@
                 "storage"
             ],
             "time": "2019-02-01 10:52:50"
+        },
+        {
+            "name": "messagebird/php-rest-api",
+            "version": "v1.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/messagebird/php-rest-api.git",
+                "reference": "c120385d013cf54ceaffa843f3efd02745eb29a9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/messagebird/php-rest-api/zipball/c120385d013cf54ceaffa843f3efd02745eb29a9",
+                "reference": "c120385d013cf54ceaffa843f3efd02745eb29a9",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MessageBird\\": "src/MessageBird/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "MessageBird",
+                    "email": "info@messagebird.com"
+                }
+            ],
+            "description": "MessageBird REST API client for PHP",
+            "homepage": "https://github.com/messagebird/php-rest-api",
+            "time": "2018-07-25T11:23:21+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -3328,7 +3369,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-01-18T14:11:32+00:00"
+            "time": "2019-01-18 14:11:32"
         },
         {
             "name": "laravel/tinker",
@@ -3391,7 +3432,7 @@
                 "laravel",
                 "psysh"
             ],
-            "time": "2018-12-21T20:07:44+00:00"
+            "time": "2018-12-21 20:07:44"
         },
         {
             "name": "nikic/php-parser",
@@ -3442,7 +3483,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2019-01-19T10:18:00+00:00"
+            "time": "2019-01-19 10:18:00"
         },
         {
             "name": "psy/psysh",
@@ -3515,7 +3556,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2019-01-26T23:41:22+00:00"
+            "time": "2019-01-26 23:41:22"
         }
     ],
     "aliases": [],
