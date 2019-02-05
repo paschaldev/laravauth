@@ -12,9 +12,10 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "nexmo/laravel": "^0.4.0",
-        "twilio/sdk": "^5.4",
-        "nesbot/carbon": "~1.20"
+        "nexmo/laravel": "^1.1.1",
+        "twilio/sdk": "^5.28",
+        "nesbot/carbon": "~2.11",
+        "messagebird/php-rest-api": "1.10.*"
     },
     "require-dev": {
         "laravel/laravel": "dev-develop"

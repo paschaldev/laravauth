@@ -214,8 +214,8 @@ return [
         //Text to append before the token code
         'text_prefix' => 'Your one time password (OTP) valid for %validity%min is: ',
 
-        //Support for 2 gateways / sms providers.
-        //Possible values: nexmo, twilio
+        //Support for 3 gateways / sms providers.
+        //Possible values: nexmo, twilio, messagebird
         'gateway' => 'nexmo'
     ],
 
