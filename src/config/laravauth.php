@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 return [
 
-	/*
+    /*
     |--------------------------------------------------------------------------
     | Application Login Route
     |--------------------------------------------------------------------------
@@ -13,7 +13,7 @@ return [
     | @required String
     */
 
-	'login_route' => 'login',
+    'login_route' => 'login',
 
     /*
     |--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ return [
 
     'validator_route' => 'validate',
 
-	/*
+    /*
     |--------------------------------------------------------------------------
     | Login Unique Identifier
     |--------------------------------------------------------------------------
@@ -42,9 +42,9 @@ return [
     | @required string
     */
 
-	'login_id'	=> 'email',
+    'login_id' => 'email',
 
-	/*
+    /*
     |--------------------------------------------------------------------------
     | Login Identifier Relationship
     |--------------------------------------------------------------------------
@@ -55,7 +55,7 @@ return [
     | @required string
     */
 
-	'login_id_rel'	=> 'email',
+    'login_id_rel' => 'email',
 
     /*
     |--------------------------------------------------------------------------
@@ -71,7 +71,7 @@ return [
     | @required string
     */
 
-    'password_id'  => 'password',
+    'password_id' => 'password',
 
     /*
     |--------------------------------------------------------------------------
@@ -87,9 +87,9 @@ return [
     | @required string
     */
 
-    'password_rel'  => 'password',
+    'password_rel' => 'password',
 
-	/*
+    /*
     |--------------------------------------------------------------------------
     | User Model
     |--------------------------------------------------------------------------
@@ -100,9 +100,9 @@ return [
     | @required String
     */
 
-	'user_model' => 'App\User',
+    'user_model' => 'App\User',
 
-	/*
+    /*
     |--------------------------------------------------------------------------
     | Authentication Methods
     |--------------------------------------------------------------------------
@@ -114,7 +114,7 @@ return [
     | @required string
     */
 
-	'auth_method' => 'email_token',
+    'auth_method' => 'email_token',
 
     /*
     |--------------------------------------------------------------------------
@@ -128,7 +128,7 @@ return [
 
     'token_var' => 'token',
 
-	/*
+    /*
     |--------------------------------------------------------------------------
     | Soft Disable
     |--------------------------------------------------------------------------
@@ -140,7 +140,7 @@ return [
     | @optional bool
     */
 
-	'soft_disable' => false,
+    'soft_disable' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -178,13 +178,13 @@ return [
     | @required array
     */
 
-	'email_token' => [
+    'email_token' => [
 
         //Token lifetime in seconds
-        'lifetime' => 600, 
+        'lifetime' => 600,
 
         //Length of the random string to be hashed
-        'length' => 50, 
+        'length' => 50,
 
         //See full list of options here http://php.net/manual/en/function.hash-algos.php
         'algorithm' => 'sha256',
@@ -206,7 +206,7 @@ return [
     'two_factor_sms' => [
 
         //Token lifetime in seconds
-        'lifetime' => 600, 
+        'lifetime' => 600,
 
         //Length of the token
         'length' => 10,
@@ -231,5 +231,5 @@ return [
     | @required string
     */
 
-	'auth_redirect' => '/home',
+    'auth_redirect' => '/home',
 ];

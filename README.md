@@ -151,7 +151,7 @@ class User extends Authenticatable
 
     laravauthPhone(){
 
-    	//The logic to retrieve user's phone number.
+        //The logic to retrieve user's phone number.
     }
 }
 
@@ -166,9 +166,9 @@ Once a user logs in and the credentials are valid, a page asking for the token i
 
 ```html
 <form method="POST" action="{{ url('/validate') }}">
-	<input type="text" name="{{ laravauth_token_var_name() }}" />
-	<button type="submit">Submit</button>
-	{{ csrf_field() }}
+    <input type="text" name="{{ laravauth_token_var_name() }}" />
+    <button type="submit">Submit</button>
+    {{ csrf_field() }}
 </form>
 ```
 

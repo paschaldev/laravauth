@@ -1,13 +1,14 @@
-<?php 
+<?php
 
 namespace PaschalDev\Laravauth\Contracts;
 
-interface TwoFactorSmsGateway{
+interface TwoFactorSmsGateway
+{
 
-	/**
-    * Handles sending sms to user's phone.
-    *
-    * @return mixed
-    */
-	public function send($to, $message);
+    /**
+     * Handles sending sms to user's phone.
+     *
+     * @return mixed
+     */
+    public function send($to, $message);
 }
