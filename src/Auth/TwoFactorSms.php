@@ -57,7 +57,7 @@ class TwoFactorSms implements TokenAuthenticator
         // Data for responses
         $data = [
             'success' => true,
-            'laravauth_var' => route('laravauth_email_response'),
+            'laravauth_var' => route('laravauth_sms_response'),
             'user_id' => $this->user->id
         ];
 
