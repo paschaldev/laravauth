@@ -17,6 +17,6 @@ class Twilio implements TwoFactorSmsGateway
     public function send($to, $message)
     {
         return app('twilio')->messages->create($to,
-            ['from' => env('TWILIO_NUMBER'), 'body' => $message]);
+            ['from' => env('TWILIO_FROM'), 'body' => $message]);
     }
 }
