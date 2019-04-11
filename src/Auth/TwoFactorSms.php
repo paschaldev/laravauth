@@ -58,11 +58,11 @@ class TwoFactorSms implements TokenAuthenticator
         $data = [
             'success' => true,
             'laravauth_var' => route('laravauth_sms_response'),
-            'user_id' => $this->user->id
+            'user_id' => $this->user->getKey()
         ];
 
         // Add the user id to the session.
-        $this->request->session()->flash('user_id', $this->user->id);
+        $this->request->session()->flash('user_id', $this->user->getKey());
 
         // If the request was expecting a JSON, probably
         // XMLHttpRequest (Ajax).
