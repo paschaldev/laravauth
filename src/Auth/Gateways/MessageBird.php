@@ -16,7 +16,7 @@ class MessageBird implements TwoFactorSmsGateway
     public function send($to, $message)
     {
         return app('messagebird')->messages->create([
-            'originator' => env('MESSAGEBIRD_NUMBER'),
+            'originator' => env('MESSAGEBIRD_FROM'),
             'recipients' => [$to],
             'body' => $message
         ]);
