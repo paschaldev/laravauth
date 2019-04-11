@@ -138,7 +138,7 @@ MESSAGEBIRD_FROM=xxxxxx
 You can get your MessageBird key from your dashboard after creating account.
 ___
 
-After setting the SMS providers, you are one step there. Now you need to tell **Laravauth** how to retrieve a user's phone number by adding the following method to your user model: `laravauthPhone()`.
+After setting the SMS providers, you are almost there. Now you need to tell **Laravauth** how to retrieve a user's phone number by adding the following method to your user model: `laravauthPhone()`.
 
 ```php
 class User extends Authenticatable
@@ -149,8 +149,8 @@ class User extends Authenticatable
     .
     .
 
-    laravauthPhone(){
-
+    public function laravauthPhone()
+    {
         //The logic to retrieve user's phone number.
     }
 }
