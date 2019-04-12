@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace PaschalDev\Laravauth\Http\Controllers;
 
@@ -9,15 +9,16 @@ use PaschalDev\Laravauth\Http\Requests\LaravauthLoginRequest;
 
 class LaravauthLoginController extends Controller
 {
-	/**
+    /**
      * Transfers the login control to the appropriate method
      * depending on the 'auth_method' chosen.
      *
      * @return void
      */
-	public function login(LaravauthLoginRequest $request){
-        
-        return Laravauth::getAuthMethodInstance( $request )->login();
+    public function login(LaravauthLoginRequest $request)
+    {
+
+        return Laravauth::getAuthMethodInstance($request)->login();
     }
 
     /**
@@ -26,39 +27,42 @@ class LaravauthLoginController extends Controller
      *
      * @return mixed
      */
-    public function authenticate(Request $request){
+    public function authenticate(Request $request)
+    {
 
-        return Laravauth::getAuthMethodInstance( $request )->auth();
+        return Laravauth::getAuthMethodInstance($request)->auth();
     }
 
     /**
      * Returns the view after email has been provided when using
      * the email_token auth method.
      *
-     * This method rejects & aborts a request if the URL is 
+     * This method rejects & aborts a request if the URL is
      * accessed directly.
      *
      * @return void
      */
-    public function emailResponse(Request $request){
+    public function emailResponse(Request $request)
+    {
 
-        abort_unless( $request->session()->has('laravauth_var'), 404);
+        abort_unless($request->session()->has('laravauth_var'), 404);
 
         return view('laravauth::email_response');
     }
 
     /**
-     * Returns the view after login when using the two_factor_sms 
+     * Returns the view after login when using the two_factor_sms
      * auth method.
      *
-     * This method rejects & aborts a request if the URL is 
+     * This method rejects & aborts a request if the URL is
      * accessed directly.
      *
      * @return void
      */
-    public function smsResponse(Request $request){
+    public function smsResponse(Request $request)
+    {
 
-        abort_unless( $request->session()->has('laravauth_var'), 404);
+        abort_unless($request->session()->has('laravauth_var'), 404);
 
         $request->session()->reflash();
 

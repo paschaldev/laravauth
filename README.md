@@ -28,7 +28,7 @@ This mode of authorization requires password and a phone number for the user. Af
 
 ## Installation
 
-The installation process of this package is a breeze. The first step is to require with comoposer.
+The installation process of this package is a breeze. The first step is to require with composer.
 
 ```
 $ composer require paschaldev/laravauth
@@ -58,7 +58,7 @@ Now run:
 $ php artisan migrate
 ```
 
-If all is good, migration is succesfull. That's all there is to do. Installation complete.
+If all is good, migration is successful. That's all there is to do. Installation complete.
 
 ## Usage
 
@@ -90,7 +90,7 @@ P.S: Very important, make sure your app `url` in laravel's `app.php` config file
 
 #### Two Factor Authorization (SMS)
 
-This mode of authorization requires an SMS provider. Two providers are shipped with this package:
+This mode of authorization requires an SMS provider. Several providers are shipped with this package:
 
 1. [Nexmo](http://nexmo.com)
 2. [Twilio](http://twilio.com)
@@ -100,7 +100,7 @@ You can choose your preferred provider by changing the value in the `laravauth` 
 
 Each of these providers have their own specific requirements. You are required to register with any provider of your choice. 
 
-PS: Using this option, you know you should have a large amount of balance to be able to accomodate the frequnt logins. 
+PS: Using this option, you know you should have a large amount of balance to be able to accommodate the frequent logins. 
 
 ##### Nexmo 
 
@@ -112,7 +112,7 @@ NEXMO_SECRET=xxxxxx
 NEXMO_FROM=xxxxxx
 ```
 
-You can get your nexmo key and secret from your dashboard after creating account.
+You can get your Nexmo key and secret from your dashboard after creating account.
 
 ##### Twilio 
 
@@ -124,7 +124,7 @@ TWILIO_TOKEN=xxxxx
 TWILIO_FROM=xxxxx
 ```
 
-You can get all the values from your twilio dashboard. The `TWILIO_FROM` is a phone number you get when you are done creating account. This is where your SMS will originate from.
+You can get all the values from your Twilio dashboard. The `TWILIO_FROM` is a phone number you get when you are done creating account. This is where your SMS will originate from.
 
 ##### MessageBird
 
@@ -138,7 +138,7 @@ MESSAGEBIRD_FROM=xxxxxx
 You can get your MessageBird key from your dashboard after creating account.
 ___
 
-After setting the SMS providers, you are one step there. Now you need to tell **Laravauth** how to retrieve a user's phone number by adding the following method to your user model: `laravauthPhone()`.
+After setting the SMS providers, you are almost there. Now you need to tell **Laravauth** how to retrieve a user's phone number by adding the following method to your user model: `laravauthPhone()`.
 
 ```php
 class User extends Authenticatable
@@ -149,9 +149,9 @@ class User extends Authenticatable
     .
     .
 
-    laravauthPhone(){
-
-    	//The logic to retrieve user's phone number.
+    public function laravauthPhone()
+    {
+        //The logic to retrieve user's phone number.
     }
 }
 
@@ -166,9 +166,9 @@ Once a user logs in and the credentials are valid, a page asking for the token i
 
 ```html
 <form method="POST" action="{{ url('/validate') }}">
-	<input type="text" name="{{ laravauth_token_var_name() }}" />
-	<button type="submit">Submit</button>
-	{{ csrf_field() }}
+    <input type="text" name="{{ laravauth_token_var_name() }}" />
+    <button type="submit">Submit</button>
+    {{ csrf_field() }}
 </form>
 ```
 

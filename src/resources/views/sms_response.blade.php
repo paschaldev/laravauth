@@ -1,90 +1,41 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-    <title>{{ config('app.name') }} | Enter Token</title>
+@section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">{{ __('Two-Factor Authentication') }}</div>
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+                    <div class="card-body">
+                        <form method="POST" action="{{ url(config('laravauth.validator_route')) }}">
+                            @csrf
 
-    <!-- Styles -->
-    <style>
-        html, body {
-            background-color: #fff;
-            color: #636b6f;
-            font-family: 'Raleway', sans-serif;
-            font-weight: 100;
-            height: 100vh;
-            margin: 0;
-        }
+                            <div class="form-group row">
+                                <label for="{{ laravauth_token_var_name() }}" class="col-md-4 col-form-label text-md-right">{{ __('SMS Token') }}</label>
 
-        .full-height {
-            height: 100vh;
-        }
+                                <div class="col-md-6">
+                                    <input id="{{ laravauth_token_var_name() }}" type="text" class="form-control{{ $errors->has(laravauth_token_var_name()) ? ' is-invalid' : '' }}" name="{{ laravauth_token_var_name() }}" value="{{ old(laravauth_token_var_name()) }}" required autofocus>
 
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
+                                    @if ($errors->has(laravauth_token_var_name()))
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first(laravauth_token_var_name()) }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group row mb-0">
+                                <div class="col-md-8 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Login') }}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
 
-        .position-ref {
-            position: relative;
-        }
-
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .title {
-            font-size: 84px;
-        }
-
-        .links > a {
-            padding: 0 25px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: .1rem;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        .m-b-md {
-            margin-bottom: 30px;
-        }
-    </style>
-</head>
-<body>
-    <div class="flex-center position-ref full-height">
-        <div class="content">
-            <div class="title m-b-md">
-                Enter Token
-            </div>
-            <h3>An OTP has been sent to your phone.</h3>
-            <h5 style="color: darkred">Do not close this page.</h5>
-
-            <div>
-                <form method="POST" action="{{ url('/validate') }}">  
-                    <input type="text" name="{{ laravauth_token_var_name() }}" />
-
-                    <button type="submit">Submit</button>
-                    {{ csrf_field() }}
-                </form>
-            </div>
-
-            <div class="links">
-                <a href="{{ url('/') }}">Home</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</body>
-</html>
+@endsection

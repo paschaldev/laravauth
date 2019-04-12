@@ -1,97 +1,103 @@
-<?php 
+<?php
 
 namespace PaschalDev\Laravauth\Lib\SmsRouter;
 
 /**
-* Sms router for Laravel Laravauth Package.
-*
-* @author Ezeugwu Paschal <ezeugwupaschal@gmail.com>
-*/
+ * Sms router for Laravel Laravauth Package.
+ *
+ * @author Ezeugwu Paschal <ezeugwupaschal@gmail.com>
+ */
 class SmsRouter
 {
 
-	/**
+    /**
      * The Phone number the sms is to be sent to.
      *
      * @var string
      */
-	private $to;
+    private $to;
 
-	/**
+    /**
      * The text message to be sent.
      *
      * @var string
      */
-	private $message;
-	
+    private $message;
 
-	public function __construct($to, $message)
-	{
-		$this->setTo($to);
-		$this->setMessage($message);
-	}
 
-	/**
+    public function __construct($to, $message)
+    {
+        $this->setTo($to);
+        $this->setMessage($message);
+    }
+
+    /**
      * Sets the $to property on this class
      *
      * @param string
      * @return void
      */
-	public function setTo($to){
+    public function setTo($to)
+    {
 
-		$this->to = $to;
-	}
+        $this->to = $to;
+    }
 
-	/**
+    /**
      * Returns the $to property
      *
      * @return string
      */
-	public function getTo(){
+    public function getTo()
+    {
 
-		return $this->to;
-	}
+        return $this->to;
+    }
 
-	/**
+    /**
      * Sets the message property.
      *
      * @param string
      * @return void
      */
-	public function setMessage($message){
+    public function setMessage($message)
+    {
 
-		$this->message = $message;
-	}
+        $this->message = $message;
+    }
 
-	/**
+    /**
      * Returns the message
      *
      * @return string
      */
-	public function getMessage(){
+    public function getMessage()
+    {
 
-		return $this->message;
-	}
+        return $this->message;
+    }
 
-	/**
+    /**
      * Send SMS to user after choosing the appropriate gateway.
      *
      * @return mixed
      */
-	public function send(){
+    public function send()
+    {
 
-		return $this->gateway()->send( $this->getTo(), $this->getMessage() );
-	}
+        return $this->gateway()->send($this->getTo(), $this->getMessage());
+    }
 
-	/**
+    /**
      * Fetches the appropriate gateway to use.
      *
      * @return PaschalDev\Laravauth\Contracts\TwoFactorSmsGateway
      */
-	public function gateway(){
+    public function gateway()
+    {
 
-		$gateway = laravauth_class_namespace( 'Auth\Gateways', config('laravauth.two_factor_sms.gateway') ) ;
+        $gateway = laravauth_class_namespace('Auth\Gateways', config('laravauth.two_factor_sms.gateway'));
 
-		return new $gateway;
-	}
+        return new $gateway;
+    }
 }
